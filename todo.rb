@@ -17,7 +17,7 @@ end
 tasks = loadTasks()
 
 switcher = Switcher.new
-switcher.addExecutor(List.new)
 switcher.argv = ARGV
 switcher.outputer = TextOutputer.new
+switcher.addExecutor(List.new)
 switcher.run(tasks)

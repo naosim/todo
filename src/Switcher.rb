@@ -7,6 +7,8 @@ class Switcher < Executor
 
   def addExecutor(exe)
     @exes << exe
+    exe.outputer = @outputer
+    exe.argv = @argv
   end
 
   def outputer=(value)
