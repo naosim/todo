@@ -1,6 +1,7 @@
 require 'src/TextOutputer'
 require 'src/Task'
 require 'src/List'
+require 'src/Switcher'
 
 def loadTasks
   result = Array.new
@@ -13,9 +14,10 @@ def loadTasks
   return result
 end
 
-outputer = TextOutputer.new
 tasks = loadTasks()
-# p tasks
-exe = List.new
-exe.outputer = outputer
-exe.run(tasks)
+
+switcher = Switcher.new
+switcher.addExecutor(List.new)
+switcher.argv = ARGV
+switcher.outputer = TextOutputer.new
+switcher.run(tasks)

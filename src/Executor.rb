@@ -1,10 +1,11 @@
 require 'src/Outputer'
 class Executor
-  attr_accessor(:outputer, :args)
+  attr_accessor(:outputer, :argv)
   
   def run(tasks)
     
   end
+  
   def getHelpData()
     
   end
