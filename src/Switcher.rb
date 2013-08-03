@@ -33,6 +33,7 @@ class Switcher < Executor
   end
   
   def run(tasks)
-    getExecutor(@argv[0]).run(tasks)
+    exe = getExecutor(@argv[0])
+    exe.run(tasks) if exe != nil
   end
 end
