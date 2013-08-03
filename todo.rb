@@ -3,6 +3,7 @@ require 'src/Task'
 require 'src/List'
 require 'src/Add'
 require 'src/Done'
+require 'src/Delete'
 require 'src/Switcher'
 
 def createTask line
@@ -61,6 +62,7 @@ switcher.outputer = TextOutputer.new
 # switcher.addExecutor(listExecutor)
 switcher.addExecutor(Add.new)
 switcher.addExecutor(Done.new)
+switcher.addExecutor(Delete.new)
 switcher.run(tasks)
 
 listExecutor = List.new
