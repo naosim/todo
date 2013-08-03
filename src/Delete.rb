@@ -1,7 +1,17 @@
 require 'src/Executor'
 class Delete < Executor
   def run(tasks)
-    tasks.delete_at(@argv[1].to_i)
+    if @argv[1] == "-done"
+      deleteDone(tasks)
+    else    
+      tasks.delete_at(@argv[1].to_i)
+    end
+  end
+  
+  def deleteDone(tasks) 
+    tasks.delete_if{|task|
+        task.isFinished?
+      }
   end
   
   def isKey?(key)
