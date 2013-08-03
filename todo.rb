@@ -1,10 +1,10 @@
-require 'src/TextOutputer'
-require 'src/Task'
-require 'src/List'
-require 'src/Add'
-require 'src/Done'
-require 'src/Delete'
-require 'src/Switcher'
+require File.dirname(__FILE__) + '/src/TextOutputer'
+require File.dirname(__FILE__) + '/src/Task'
+require File.dirname(__FILE__) + '/src/List'
+require File.dirname(__FILE__) + '/src/Add'
+require File.dirname(__FILE__) + '/src/Done'
+require File.dirname(__FILE__) + '/src/Delete'
+require File.dirname(__FILE__) + '/src/Switcher'
 
 def createTask line
   task = Task.new
@@ -26,7 +26,7 @@ def loadTasks
   # }
   # return result
 
-  open("data.txt") {|file|
+  open(File.dirname(__FILE__) + "/data.txt") {|file|
     while l = file.gets
       break if l.strip.length == 0
       
@@ -38,13 +38,13 @@ def loadTasks
       result.push(task)
 
     end
-  } if File.exist?("data.txt")
+  } if File.exist?(File.dirname(__FILE__) + "/data.txt")
 
   return result
 end
 
 def saveTasks(tasks)
-  File.open("data.txt", "w"){|file|
+  File.open(File.dirname(__FILE__) + "/data.txt", "w"){|file|
     tasks.each{|task|
       date = task.isFinished? ? "0" : "-"
       line = "#{date} #{task.name}\n"
@@ -59,16 +59,16 @@ tasks = loadTasks()
 switcher = Switcher.new
 switcher.argv = ARGV
 switcher.outputer = TextOutputer.new
-# switcher.addExecutor(listExecutor)
+switcher.addExecutor(List.new)
 switcher.addExecutor(Add.new)
 switcher.addExecutor(Done.new)
 switcher.addExecutor(Delete.new)
 switcher.run(tasks)
 
-listExecutor = List.new
-listExecutor.argv = ARGV
-listExecutor.outputer = TextOutputer.new
-listExecutor.run(tasks)
+# listExecutor = List.new
+# listExecutor.argv = ARGV
+# listExecutor.outputer = TextOutputer.new
+# listExecutor.run(tasks)
 
 
 saveTasks(tasks)

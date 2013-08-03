@@ -1,4 +1,4 @@
-require 'src/Executor'
+require File.dirname(__FILE__) + '/Executor'
 class Delete < Executor
   def run(tasks)
     if @argv[1] == "-done"

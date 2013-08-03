@@ -1,4 +1,4 @@
-require 'src/Outputer'
+require File.dirname(__FILE__) + '/Outputer'
 class Executor
   attr_accessor(:outputer, :argv)
   

@@ -1,4 +1,4 @@
-require 'src/Executor'
+require File.dirname(__FILE__) + '/Executor'
 class Done < Executor
   def run(tasks)
     return if @argv.length < 2

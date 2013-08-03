@@ -1,4 +1,4 @@
-require 'src/Executor'
+require File.dirname(__FILE__) + '/Executor'
 
 class Add < Executor
   def run(tasks)
