@@ -8,4 +8,8 @@ class List < Executor
       i += 1
     }
   end
+  
+  def isKey?(key)
+    return key == "ls"
+  end
 end

@@ -1,6 +1,7 @@
 require 'src/TextOutputer'
 require 'src/Task'
 require 'src/List'
+require 'src/Switcher'
 
 def createTask line
   task = Task.new
@@ -49,11 +50,12 @@ def saveTasks(tasks)
   }
 end
 
-outputer = TextOutputer.new
 tasks = loadTasks()
 
-exe = List.new
-exe.outputer = outputer
-exe.run(tasks)
+switcher = Switcher.new
+switcher.argv = ARGV
+switcher.outputer = TextOutputer.new
+switcher.addExecutor(List.new)
+switcher.run(tasks)
 
 saveTasks(tasks)
