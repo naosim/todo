@@ -7,6 +7,10 @@ class List < Executor
     elsif @argv[1] == "-s"
       showWithFilter(tasks, true);
       showWithFilter(tasks, false);
+    elsif @argv[1] == "-todo"
+      showWithFilter(tasks, false);
+    elsif @argv[1] == "-done"
+      showWithFilter(tasks, true);
     end
   end
 
