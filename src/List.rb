@@ -5,8 +5,8 @@ class List < Executor
     if !isKey?(@argv[0]) || @argv.length == 1
       showAll(tasks)
     elsif @argv[1] == "-s"
-      showWithFilter(tasks, true);
       showWithFilter(tasks, false);
+      showWithFilter(tasks, true);
     elsif @argv[1] == "-todo"
       showWithFilter(tasks, false);
     elsif @argv[1] == "-done"
