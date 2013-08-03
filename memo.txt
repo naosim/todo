@@ -1,19 +1,19 @@
 ストーリー
-リストみれる ls hoge
-追加できる add
-保存できる
-Doneにできる do 3
-削除できる del
-おわったもの、おわってないものを分けて出せる ls -s
-終わったものを一括削除できる del -done
-おわってないものだけ出せる ls -todo
-追加時にindex指定できる ls -i 4 hoge
-完了時刻を出せる ls -l
-既存のものを挿入できる ins 3 5
-おわったものだけ出せる ls -done
-ヘルプ見れる help
-複数タスクをインポートできる cat add.txt | ls import
-バーンダウンチャート出せる graph
+- リストみれる ls hoge
+- 読み込み&保存できる
+- 追加できる add
+- Doneにできる do 3
+- 削除できる del
+- おわったもの、おわってないものを分けて出せる ls -s
+- 終わったものを一括削除できる del -done
+- おわってないものだけ出せる ls -todo
+- 追加時にindex指定できる ls -i 4 hoge
+- 完了時刻を出せる ls -l
+- 既存のものを挿入できる ins 3 5
+- おわったものだけ出せる ls -done
+- ヘルプ見れる help
+- 複数タスクをインポートできる cat add.txt | ls import
+- バーンダウンチャート出せる graph
 -----
 
 $ ls
@@ -54,7 +54,10 @@ $ del 4-6
 最終的にRunnableをRunするだけ。
 4,6とかはIndexの配列になる
 
+外部ファイル形式
 
+123456 hoge
+- foo
 
 
 
